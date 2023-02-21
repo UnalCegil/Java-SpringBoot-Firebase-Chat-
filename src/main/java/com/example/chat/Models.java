@@ -1,14 +1,10 @@
-package com.example.Codeminechat;
+package com.example.chat;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
-public class CRUD {
+public class Models {
 	private String documentId;
 	private String name;
 	private String profession;
+	
 	public String getDocumentId() {
 		return documentId;
 	}

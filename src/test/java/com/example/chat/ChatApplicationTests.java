@@ -1,13 +1,14 @@
-package com.example.Codeminechat;
+package com.example.chat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CodemineChatApplicationTests {
+class ChatApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }

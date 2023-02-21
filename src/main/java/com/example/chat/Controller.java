@@ -1,8 +1,7 @@
-package com.example.Codeminechat;
+package com.example.chat;
 
 import java.util.concurrent.ExecutionException;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,26 +9,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CRUDController {
+public class Controller {
 	
-	public CRUDService crudService;
+	public FirebaseService crudService;
 	
-	public CRUDController(CRUDService crudService) {
+	public Controller(FirebaseService crudService) {
 		this.crudService=crudService;
 	}
 	
 	@PostMapping("/create")
-	public String createCRUD(@RequestBody CRUD crud) throws InterruptedException,ExecutionException{
+	public String createCRUD(@RequestBody Models crud) throws InterruptedException,ExecutionException{
 		return crudService.createCRUD(crud);
 	}
 	
 	@GetMapping("/get")
-	public CRUD getCRUD(@RequestParam String documentId) throws InterruptedException,ExecutionException{
+	public Models getCRUD(@RequestParam String documentId) throws InterruptedException,ExecutionException{
 		return crudService.getCRUD(documentId);
 	}
 	
 	@GetMapping("/update")
-	public String updateCRUD(@RequestBody CRUD crud) throws InterruptedException,ExecutionException{
+	public String updateCRUD(@RequestBody Models crud) throws InterruptedException,ExecutionException{
 		return crudService.updateCRUD(crud);
 	}
 	
@@ -38,8 +37,4 @@ public class CRUDController {
 		return crudService.deleteCRUD(documentId);
 	}
 	
-	@GetMapping("/test")
-	public ResponseEntity<String> testGetEndPoint(){
-		return ResponseEntity.ok("Test Get Endpoint is Working");
-	}
 }

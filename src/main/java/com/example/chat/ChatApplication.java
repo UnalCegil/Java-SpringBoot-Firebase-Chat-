@@ -1,4 +1,4 @@
-package com.example.Codeminechat;
+package com.example.chat;
 
 import java.io.File;
 
@@ -15,11 +15,11 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-public class CodemineChatApplication {
+public class ChatApplication {
 
 	public static void main(String[] args) throws IOException{
 		
-		ClassLoader classLoader=CodemineChatApplication.class.getClassLoader();
+		ClassLoader classLoader=ChatApplication.class.getClassLoader();
 		
 		File file=new File(Objects.requireNonNull(classLoader.getResource("serviceAccountKey.json")).getFile());
 		FileInputStream serviceAccount=new FileInputStream(file.getAbsolutePath());
@@ -33,7 +33,7 @@ public class CodemineChatApplication {
 		FirebaseApp.initializeApp(options);
 
 		
-		SpringApplication.run(CodemineChatApplication.class, args);
+		SpringApplication.run(ChatApplication.class, args);
 	}
 
 }
